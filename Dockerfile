@@ -1,13 +1,13 @@
 FROM quay.io/centos/centos:stream10
 
-RUN dnf install -y python3 python3-pip curl && dnf clean all
+RUN dnf install python3 python3-pip curl -y && dnf clean all
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY donlod.txt .
 COPY app.py .
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r donlod.txt
 
 EXPOSE 5000
 

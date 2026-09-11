@@ -1,0 +1,25 @@
+services:
+  python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+  node:
+    build: 
+      context: .
+      dockerfile: Dockerfile2
+    ports:
+      - "3000:3000"
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile3
+    ports:
+      - "80:80"
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile4
+    ports:
+      - "8080:80"

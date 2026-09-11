@@ -1,0 +1,11 @@
+FROM quay.io/centos/centos:stream10
+
+RUN dnf install nginx curl -y && dnf clean all
+
+WORKDIR /usr/share/nginx/html
+
+COPY index.html .
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

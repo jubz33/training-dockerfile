@@ -1,0 +1,15 @@
+FROM quay.io/centos/centos:stream10
+
+RUN dnf install nodejs npm curl -y && dnf clean all
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+EXPOSE 3000
+
+COPY app.js .
+
+CMD ["node","app.js"]
